@@ -12,6 +12,8 @@ export async function POST(req) {
       recipientName: body.recipientName,
       questionText: body.questionText,
       theme: body.theme,
+      giftType: body.giftType,
+      giftConfig: body.giftConfig,
     },
   });
 
