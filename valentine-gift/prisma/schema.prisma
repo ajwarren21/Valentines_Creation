@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// Auto generated examples from prisma install
+// generator client {
+//   provider = "prisma-client"
+//   output   = "../src/generated/prisma"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+// }
+
+
+// auto generated, edit if need to but example for setup
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Gift {
+  id            String   @id @default(uuid())
+  slug          String   @unique
+  senderName    String
+  recipientName String
+  questionText  String
+  theme         String
+
+  status        GiftStatus @default(CREATED)
+
+  openedAt      DateTime?
+  respondedAt   DateTime?
+
+  coffeeDrink   String?
+  coffeeSize    String?
+  coffeeMilk    String?
+
+  createdAt     DateTime @default(now())
+}
+
+enum GiftStatus {
+  CREATED
+  OPENED
+  ACCEPTED
+}
+
+// to genrate:
+
+// npx prisma migrate dev --name init
+// npx prisma generate
+
+
+// Optional for ui:
+
+// npx prisma studio
