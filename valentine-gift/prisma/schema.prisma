@@ -28,28 +28,35 @@ generator client {
 model Gift {
   id            String   @id @default(uuid())
   slug          String   @unique
+
   senderName    String
   recipientName String
   questionText  String
   theme         String
 
+  giftType      GiftType
+  giftConfig    Json
+
   status        GiftStatus @default(CREATED)
 
   openedAt      DateTime?
   respondedAt   DateTime?
-
-  coffeeDrink   String?
-  coffeeSize    String?
-  coffeeMilk    String?
-
   createdAt     DateTime @default(now())
+}
+
+enum GiftType {
+  COFFEE
+  GIFTCARD
+  CHOCOLATES
 }
 
 enum GiftStatus {
   CREATED
   OPENED
   ACCEPTED
+  FULFILLED
 }
+
 
 // to genrate:
 
@@ -60,3 +67,30 @@ enum GiftStatus {
 // Optional for ui:
 
 // npx prisma studio
+
+
+// Coffee config
+// {
+//   "provider": "starbucks",
+//   "drink": "Latte",
+//   "size": "Grande",
+//   "milk": "Oat",
+//   "extras": ["Vanilla"]
+// }
+
+// Gift card config
+// {
+//   "provider": "tango",
+//   "amount": 10,
+//   "currency": "USD",
+//   "brand": "Starbucks"
+// }
+
+
+// Chocolates
+// {
+//   "provider": "amazon",
+//   "asin": "B08XYZ123",
+//   "title": "Ferrero Rocher 24pc",
+//   "affiliateTag": "yourtag-20"
+// }
