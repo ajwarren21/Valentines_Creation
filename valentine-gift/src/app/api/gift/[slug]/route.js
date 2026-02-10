@@ -1,4 +1,4 @@
-import { fulfillGift } from "@/lib/fulfillment";
+import { fulfillGift } from "@/../lib/fulfillment";
 
 export async function PATCH(req, { params }) {
   const gift = await prisma.gift.findUnique({
