@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function GiftPage({ params }) {
   const { slug } = params;
   const [gift, setGift] = useState(null);
-  const [accepted, setAccepted] = useState(false);
+  const [fulfilled, setFulfilled] = useState(false);
 
   useEffect(() => {
     fetch(`/api/gift/${slug}`)
@@ -13,39 +13,68 @@ export default function GiftPage({ params }) {
       .then(setGift);
   }, [slug]);
 
-  async function handleAccept() {
-    await fetch(`/api/gift/${slug}`, {
+  async function acceptGift() {
+    const res = await fetch(`/api/gift/${slug}`, {
       method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        drink: "Latte",
-        size: "Grande",
-        milk: "Oat",
-      }),
     });
-    setAccepted(true);
+    const data = await res.json();
+    setFulfilled(data.fulfillmentResult);
   }
 
-  if (!gift) return <p>Loading...</p>;
+  if (!gift) return <p className="p-6">Loading...</p>;
 
   return (
     <div className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl">
-        {gift.senderName} asks {gift.recipientName}
+      <h1 className="text-2xl mb-2">
+        {gift.senderName} 💖 {gift.recipientName}
       </h1>
 
-      <p className="my-4">{gift.questionText}</p>
+      <p className="mb-4">{gift.questionText}</p>
 
-      {!accepted ? (
+      {!fulfilled ? (
         <button
           className="bg-green-500 text-white px-4 py-2"
-          onClick={handleAccept}
+          onClick={acceptGift}
         >
-          Yes 💖
+          Accept Gift
         </button>
       ) : (
-        <p className="text-pink-600 mt-4">Coffee is on the way ☕</p>
+        <FulfillmentDisplay gift={gift} result={fulfilled} />
       )}
     </div>
   );
+}
+
+function FulfillmentDisplay({ gift, result }) {
+  if (gift.giftType === "COFFEE") {
+    return (
+      <a
+        href={result}
+        className="text-blue-600 underline mt-4 block"
+      >
+        Open Coffee Link ☕
+      </a>
+    );
+  }
+
+  if (gift.giftType === "GIFTCARD") {
+    return (
+      <p className="mt-4">
+        🎁 Gift Card Code: <strong>{result.redemptionCode}</strong>
+      </p>
+    );
+  }
+
+  if (gift.giftType === "CHOCOLATES") {
+    return (
+      <a
+        href={result}
+        className="text-blue-600 underline mt-4 block"
+      >
+        View Chocolates 🍫
+      </a>
+    );
+  }
+
+  return null;
 }

@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import GiftTypeSelector from "@/../components/GiftTypeSelector";
+import CoffeeConfig from "@/../components/CoffeeConfig";
+import GiftCardConfig from "@/../components/GiftCardConfig";
+import ChocolateConfig from "@/../components/ChocolateConfig";
 
 export default function CreatePage() {
   const [senderName, setSenderName] = useState("");
   const [recipientName, setRecipientName] = useState("");
   const [questionText, setQuestionText] = useState("");
-  const [theme, setTheme] = useState("classic");
+  const [giftType, setGiftType] = useState("COFFEE");
+  const [giftConfig, setGiftConfig] = useState({});
   const [link, setLink] = useState(null);
 
   async function handleCreate() {
@@ -17,7 +22,9 @@ export default function CreatePage() {
         senderName,
         recipientName,
         questionText,
-        theme,
+        theme: "classic",
+        giftType,
+        giftConfig,
       }),
     });
 
@@ -27,7 +34,7 @@ export default function CreatePage() {
 
   return (
     <div className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl mb-4">Create Your Valentine</h1>
+      <h1 className="text-2xl mb-4">Create a Gift</h1>
 
       <input
         className="border p-2 w-full mb-2"
@@ -42,16 +49,28 @@ export default function CreatePage() {
       />
 
       <textarea
-        className="border p-2 w-full mb-2"
-        placeholder="Your message"
+        className="border p-2 w-full mb-4"
+        placeholder="Message"
         onChange={(e) => setQuestionText(e.target.value)}
       />
 
+      <GiftTypeSelector value={giftType} onChange={setGiftType} />
+
+      {giftType === "COFFEE" && (
+        <CoffeeConfig value={giftConfig} onChange={setGiftConfig} />
+      )}
+      {giftType === "GIFTCARD" && (
+        <GiftCardConfig value={giftConfig} onChange={setGiftConfig} />
+      )}
+      {giftType === "CHOCOLATES" && (
+        <ChocolateConfig value={giftConfig} onChange={setGiftConfig} />
+      )}
+
       <button
-        className="bg-pink-500 text-white px-4 py-2"
+        className="bg-pink-500 text-white px-4 py-2 mt-4"
         onClick={handleCreate}
       >
-        Create Link
+        Create Gift Link
       </button>
 
       {link && (
@@ -65,4 +84,3 @@ export default function CreatePage() {
     </div>
   );
 }
-
