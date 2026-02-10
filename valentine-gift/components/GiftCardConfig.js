@@ -1,20 +1,32 @@
 // component for the gift car type
 
+// going to route to: https://www.amazon.com/dp/B0DSBM8T1M?ref=altParentAsins_treatment_text_from_Any_to_Appreciation&th=1
+
+
 export default function GiftCardConfig({ value, onChange }) {
   return (
     <>
+    <div className="space-y-4">
+      
+      <p class="text-purple-700 font-bold text-lg">
+        Buy Card Here: <a href="https://www.amazon.com/dp/B0DSBM8T1M?ref=altParentAsins_treatment_text_from_Any_to_Appreciation&th=1" target="_blank" class="font-medium text-fg-brand underline hover:no-underline">Giftcard</a>
+        </p>
+
+      <label className="block mb-2 text-pink-600 font-semibold">Insert Code Here: </label>
       <input
         className="border p-2 w-full mb-2"
-        type="number"
-        placeholder="Amount (USD)"
-        value={value.amount || ""}
+        type="text"
+        placeholder="Giftcard code"
+        value={value.code || ""}
         onChange={(e) =>
-          onChange({ ...value, amount: Number(e.target.value) })
+          onChange({ ...value, code: String(e.target.code) })
         }
       />
       <p className="text-sm text-gray-500">
         (Mocked gift card for now)
       </p>
+    </div>
     </>
   );
+  
 }
