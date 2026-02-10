@@ -3,7 +3,7 @@
 export default function GiftTypeSelector({ value, onChange }) {
   return (
     <div className="mb-4">
-      <label className="block mb-2 font-semibold">Gift Type</label>
+      <label className="block mb-2 text-pink-600 font-semibold">Gift Type</label>
       <select
         className="border p-2 w-full"
         value={value}

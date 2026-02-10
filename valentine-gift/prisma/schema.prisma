@@ -31,10 +31,15 @@ model Gift {
   senderName    String
   recipientName String
   questionText  String
-  theme         String
+  // theme         String
 
   giftType      GiftType
   giftConfig    Json
+
+  theme           String  @default("classic") // classic, romantic, playful, elegant
+  backgroundColor String  @default("#FFF5F7") // hex color
+  accentColor     String  @default("#FF69B4") // hex color for buttons, hearts
+  backgroundImage String? // URL or preset name
 
   status        GiftStatus @default(CREATED)
 
