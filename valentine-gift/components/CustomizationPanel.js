@@ -11,9 +11,9 @@ export default function CustomizationPanel({ value, onChange }) {
 
   const backgroundImages = [
     { id: "none", name: "Solid Color", preview: null },
-    { id: "hearts", name: "Floating Hearts", preview: "@/../public/hearts.svg" },
-    { id: "roses", name: "Rose Pattern", preview: "@/../public/roses.svg" },
-    { id: "abstract", name: "Abstract", preview: "@/../public/abstract.svg" },
+    { id: "hearts", name: "Floating Hearts", preview: "/patterns/hearts.svg" },
+    { id: "roses", name: "Rose Pattern", preview: "/patterns/roses.svg" },
+    { id: "abstract", name: "Abstract", preview: "/patterns/abstract.svg" },
   ];
 
   const handleThemeChange = (theme) => {
@@ -22,6 +22,8 @@ export default function CustomizationPanel({ value, onChange }) {
       theme: theme.id,
       backgroundColor: theme.bg,
       accentColor: theme.accent,
+      // senderName: theme.senderName,
+      // recipientName: theme.recipientName,
     });
   };
 
@@ -117,28 +119,59 @@ export default function CustomizationPanel({ value, onChange }) {
       </div>
 
       {/* Preview */}
-      <div>
-        <label className="block text-sm font-medium mb-2">Preview</label>
-        <div
-          className="h-32 rounded-lg border-2 flex items-center justify-center"
-          style={{
-            backgroundColor: value.backgroundColor || "#FFF5F7",
-            backgroundImage:
-              value.backgroundImage && value.backgroundImage !== "none"
-                ? `url(/patterns/${value.backgroundImage}.svg)`
-                : "none",
-            backgroundSize: "200px",
-          }}
-        >
-          <span
-            className="text-2xl font-bold px-6 py-3 rounded-full"
+      <div className="sticky top-6">
+        {/* <div> */}
+          <label className="text-xl font-semibold mb-4">Preview</label>
+          {/* <label className="block text-sm font-medium mb-2">Preview</label> */}
+          {/* <div
+            className="h-32 rounded-lg border-2 flex items-center justify-center"
             style={{
-              backgroundColor: value.accentColor || "#FF69B4",
-              color: "white",
+              backgroundColor: value.backgroundColor || "#FFF5F7",
+              backgroundImage:
+                value.backgroundImage && value.backgroundImage !== "none"
+                  ? `url(/patterns/${value.backgroundImage}.svg)`
+                  : "none",
+              backgroundSize: "200px",
             }}
           >
-            ❤️ Preview
-          </span>
+            <span
+              className="text-2xl font-bold px-6 py-3 rounded-full"
+              style={{
+                backgroundColor: value.accentColor || "#FF69B4",
+                color: "white",
+              }}
+            >
+              ❤️ Preview
+            </span>
+          </div> */}
+        <div 
+          className="min-h-[600px] rounded-2xl shadow-2xl p-12 flex items-center justify-center"
+          style={{
+            backgroundColor: value.backgroundColor || "#FFF5F7",
+            backgroundImage: value.backgroundImage && value.backgroundImage !== "none"
+              ? `url(/patterns/${value.backgroundImage}.svg)`
+              : "none",
+            backgroundSize: "200px",
+            backgroundRepeat: "repeat"
+          }}
+        >
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl p-8 max-w-md w-full">
+            <div className="text-center mb-6">
+              <div className="text-5xl mb-3">💝</div>
+              <h3 className="text-2xl font-bold" style={{ color: value.accentColor }}>
+                {/* {"Your Name"} → {"Their Name"} */}
+                {value.senderName || "Your Name"} → {value.recipientName || "Their Name"}
+              </h3>
+            </div>
+            
+            <div className="bg-gray-50 rounded-xl p-4 mb-4">
+              <p className="text-center text-gray-800">
+                {"Your message will appear here..."}
+                {/* {questionText || "Your message will appear here..."} */}
+              </p>
+            </div>
+          </div>
+        {/* </div> */}
         </div>
       </div>
     </div>

@@ -14,16 +14,16 @@ export default function GiftCardConfig({ value, onChange }) {
 
       <label className="block mb-2 text-pink-600 font-semibold">Insert Code Here: </label>
       <input
-        className="border p-2 w-full mb-2"
+        className="border p-2 w-full mb-2 text-gray-900 placeholder:text-gray-500"
         type="text"
         placeholder="Giftcard code"
         value={value.code || ""}
         onChange={(e) =>
-          onChange({ ...value, code: String(e.target.code) })
+          onChange({ ...value, code: String(e.target.value) })
         }
       />
       <p className="text-sm text-gray-500">
-        (Mocked gift card for now)
+        (No Stripe integration for now)
       </p>
     </div>
     </>

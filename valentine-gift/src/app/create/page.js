@@ -9,10 +9,10 @@ import ChocolateConfig from "@/../components/ChocolateConfig";
 import CustomizationPanel from "@/../components/CustomizationPanel";
 
 export default function CreatePage() {
-  const [senderName, setSenderName] = useState("");
-  const [recipientName, setRecipientName] = useState("");
+  // const [senderName, setSenderName] = useState("");
+  // const [recipientName, setRecipientName] = useState("");
   const [questionText, setQuestionText] = useState("");
-  const [customMessage, setCustomMessage] = useState("");
+  // const [customMessage, setCustomMessage] = useState("");
   
   const [giftType, setGiftType] = useState("COFFEE");
   const [giftConfig, setGiftConfig] = useState({});
@@ -23,6 +23,8 @@ export default function CreatePage() {
     backgroundColor: "#FFF5F7",
     accentColor: "#FF69B4",
     backgroundImage: "none",
+    senderName: "Your Name",
+    recipientName: "Their Name",
   });
   
   const [link, setLink] = useState(null);
@@ -76,9 +78,10 @@ export default function CreatePage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* <div className="grid md:grid-cols-2 gap-6"> */}
+        <div className="grid md:grid-cols-5 gap-6">
           {/* Left Column - Gift Details */}
-          <div className="space-y-4">
+          <div className="md:col-span-2 space-y-4">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h2 className="text-xl text-purple-700 font-semibold mb-4">Gift Details</h2>
               
@@ -86,27 +89,40 @@ export default function CreatePage() {
                 <div>
                   <label className="block text-sm text-pink-600 font-medium mb-1">Your Name *</label>
                   <input
-                    className="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="border border-gray-300 p-3 w-full rounded-lg text-gray-900
+                                placeholder:text-gray-500 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     placeholder="Your name"
-                    value={senderName}
-                    onChange={(e) => setSenderName(e.target.value)}
+                    value={customization.senderName}
+                    onChange={(e) =>
+                      setCustomization({
+                        ...customization,
+                        senderName: e.target.value,
+                      })
+                    }
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm text-pink-600 font-medium mb-1">Recipient's Name *</label>
                   <input
-                    className="border border-gray-800 p-3 w-full rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="border border-gray-800 p-3 w-full rounded-lg text-gray-900
+                                placeholder:text-gray-500 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     placeholder="Their name"
-                    value={recipientName}
-                    onChange={(e) => setRecipientName(e.target.value)}
+                    value={customization.recipientName}
+                    onChange={(e) =>
+                      setCustomization({
+                        ...customization,
+                        recipientName: e.target.value,
+                      })
+                    }
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm text-pink-600 font-medium mb-1">Main Message *</label>
                   <textarea
-                    className="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="border border-gray-300 p-3 w-full rounded-lg text-gray-900
+                                placeholder:text-gray-500 focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     placeholder="Will you be my Valentine?"
                     rows={3}
                     value={questionText}
@@ -148,49 +164,51 @@ export default function CreatePage() {
           </div>
 
           {/* Right Column - Customization */}
-          <div className="space-y-4">
-            <CustomizationPanel
-              value={customization}
-              onChange={setCustomization}
-            />
+          <div className="md:col-span-3">
+            <div className="space-y-4">
+              <CustomizationPanel
+                value={customization}
+                onChange={setCustomization}
+              />
 
-            <button
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:from-pink-600 hover:to-purple-600 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleCreate}
-              disabled={isCreating}
-            >
-              {isCreating ? "Creating..." : "Create Gift Link 🎁"}
-            </button>
+              <button
+                className="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:from-pink-600 hover:to-purple-600 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleCreate}
+                disabled={isCreating}
+              >
+                {isCreating ? "Creating..." : "Create Gift Link 🎁"}
+              </button>
 
-            {link && (
-              <div className="bg-green-50 border-2 border-green-500 p-6 rounded-lg">
-                <h3 className="font-semibold text-green-800 mb-2">
-                  Gift Created! 🎉
-                </h3>
-                <p className="text-sm text-green-700 mb-3">
-                  Share this link with your Valentine:
-                </p>
-                <div className="bg-white p-3 rounded border border-green-300 mb-3">
-                  <a
-                    className="text-blue-600 underline break-all text-sm"
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              {link && (
+                <div className="bg-green-50 border-2 border-green-500 p-6 rounded-lg">
+                  <h3 className="font-semibold text-green-800 mb-2">
+                    Gift Created! 🎉
+                  </h3>
+                  <p className="text-sm text-green-700 mb-3">
+                    Share this link with your Valentine:
+                  </p>
+                  <div className="bg-white p-3 rounded border border-green-300 mb-3">
+                    <a
+                      className="text-blue-600 underline break-all text-sm"
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link}
+                    </a>
+                  </div>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(link);
+                      alert("Link copied to clipboard!");
+                    }}
+                    className="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
                   >
-                    {link}
-                  </a>
+                    Copy Link 📋
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(link);
-                    alert("Link copied to clipboard!");
-                  }}
-                  className="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
-                >
-                  Copy Link 📋
-                </button>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

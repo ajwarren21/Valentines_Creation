@@ -4,7 +4,8 @@
 export default function CoffeeConfig({ value, onChange }) {
   return (
     <>
-      <input
+    <label className="block mb-2 text-pink-600 font-semibold">IN DEVELOPMENT </label>
+      {/* <input
         className="border p-2 w-full mb-2"
         placeholder="Drink (e.g. Latte)"
         value={value.drink || ""}
@@ -21,7 +22,7 @@ export default function CoffeeConfig({ value, onChange }) {
         placeholder="Milk (e.g. Oat)"
         value={value.milk || ""}
         onChange={(e) => onChange({ ...value, milk: e.target.value })}
-      />
+      /> */}
     </>
   );
 }

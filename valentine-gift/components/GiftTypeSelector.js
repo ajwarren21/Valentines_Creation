@@ -5,7 +5,7 @@ export default function GiftTypeSelector({ value, onChange }) {
     <div className="mb-4">
       <label className="block mb-2 text-pink-600 font-semibold">Gift Type</label>
       <select
-        className="border p-2 w-full"
+        className="border p-2 w-full text-gray-900 placeholder:text-gray-500"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       >
