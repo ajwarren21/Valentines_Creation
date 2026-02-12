@@ -1,40 +1,11 @@
-// import { fulfillGift } from "@/../lib/fulfillment";
-
-// export async function PATCH(req, { params }) {
-//   const gift = await prisma.gift.findUnique({
-//     where: { slug: params.slug },
-//   });
-
-//   if (!gift || gift.status === "ACCEPTED") {
-//     return NextResponse.json({ error: "Invalid state" }, { status: 400 });
-//   }
-
-//   const fulfillmentResult = await fulfillGift(gift);
-
-//   await prisma.gift.update({
-//     where: { id: gift.id },
-//     data: {
-//       status: "FULFILLED",
-//       respondedAt: new Date(),
-//       giftConfig: {
-//         ...gift.giftConfig,
-//         fulfillmentResult,
-//       },
-//     },
-//   });
-
-//   return NextResponse.json({ fulfillmentResult });
-// }
-
-
 // app/api/gift/[slug]/route.js
 import { NextResponse } from "next/server";
 import { prisma } from "@/../lib/prisma";
 
 // GET - Retrieve gift details
-export async function GET(req, { params }) {
+export async function GET(req, context) {
   try {
-    const { slug } = params;
+    const { slug } = await context.params;
 
     const gift = await prisma.gift.findUnique({
       where: { slug },
@@ -58,9 +29,9 @@ export async function GET(req, { params }) {
 }
 
 // PATCH - Accept/fulfill gift
-export async function PATCH(req, { params }) {
+export async function PATCH(req, context) {
   try {
-    const { slug } = params;
+    const { slug } = await context.params;
 
     const gift = await prisma.gift.findUnique({
       where: { slug },

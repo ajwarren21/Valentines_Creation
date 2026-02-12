@@ -16,3 +16,31 @@ export default function GiftTypeSelector({ value, onChange }) {
     </div>
   );
 }
+
+
+// export default function GiftTypeSelector({ value, onChange }) {
+//   return (
+//     <div className="flex gap-3">
+//       <button
+//         onClick={() => onChange("COFFEE")}
+//         className={value === "COFFEE" ? "bg-pink-500 text-white" : "bg-gray-200"}
+//       >
+//         Coffee
+//       </button>
+
+//       <button
+//         onClick={() => onChange("GIFTCARD")}
+//         className={value === "GIFTCARD" ? "bg-pink-500 text-white" : "bg-gray-200"}
+//       >
+//         Gift Card
+//       </button>
+
+//       <button
+//         onClick={() => onChange("CHOCOLATES")}
+//         className={value === "CHOCOLATES" ? "bg-pink-500 text-white" : "bg-gray-200"}
+//       >
+//         Chocolates
+//       </button>
+//     </div>
+//   );
+// }

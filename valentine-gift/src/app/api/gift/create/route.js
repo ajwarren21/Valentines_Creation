@@ -29,6 +29,7 @@ import { randomUUID } from "crypto";
 export async function POST(req) {
   try {
     const body = await req.json();
+    console.log("Received body:", body); 
 
     // Validate required fields
     if (!body.senderName || !body.recipientName || !body.questionText) {
@@ -44,7 +45,7 @@ export async function POST(req) {
         senderName: body.senderName,
         recipientName: body.recipientName,
         questionText: body.questionText,
-        customMessage: body.customMessage || null,
+        // customMessage: body.customMessage || null,
         
         // Customization
         theme: body.theme || "classic",
@@ -58,11 +59,14 @@ export async function POST(req) {
       },
     });
 
+    console.log("Created gift:", gift); 
+    console.log("Slug:", gift.slug); 
+
     return NextResponse.json({ slug: gift.slug });
   } catch (error) {
-    console.error("Error creating gift:", error);
+    console.error("Full Error:", error);
     return NextResponse.json(
-      { error: "Failed to create gift" },
+      { error: "error creating link" },
       { status: 500 }
     );
   }

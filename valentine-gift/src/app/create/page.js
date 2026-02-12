@@ -14,7 +14,7 @@ export default function CreatePage() {
   const [questionText, setQuestionText] = useState("");
   // const [customMessage, setCustomMessage] = useState("");
   
-  const [giftType, setGiftType] = useState("COFFEE");
+  const [giftType, setGiftType] = useState("GIFTCARD");
   const [giftConfig, setGiftConfig] = useState({});
   
   // Customization state
@@ -30,21 +30,20 @@ export default function CreatePage() {
   const [link, setLink] = useState(null);
   const [isCreating, setIsCreating] = useState(false);
 
+  console.log("Current giftType:", giftType);
+
+
   async function handleCreate() {
-    if (!senderName || !recipientName || !questionText) {
+    if (!customization.senderName || !customization.recipientName || !questionText) {
       alert("Please fill in all required fields!");
       return;
     }
 
     setIsCreating(true);
 
-    try {
-      const res = await fetch("/api/gift/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          senderName,
-          recipientName,
+    const payload = {
+      senderName: customization.senderName,
+          recipientName: customization.recipientName,
           questionText,
           // customMessage,
           theme: customization.theme,
@@ -53,10 +52,46 @@ export default function CreatePage() {
           backgroundImage: customization.backgroundImage,
           giftType,
           giftConfig,
-        }),
+    }
+    console.log("Sending payload:", payload); // ADD THIS
+
+    try {
+      // const res = await fetch("/api/gift/create", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     senderName: customization.senderName,
+      //     recipientName: customization.recipientName,
+      //     questionText,
+      //     // customMessage,
+      //     theme: customization.theme,
+      //     backgroundColor: customization.backgroundColor,
+      //     accentColor: customization.accentColor,
+      //     backgroundImage: customization.backgroundImage,
+      //     giftType,
+      //     giftConfig,
+      //   }),
+      // });
+      const res = await fetch("/api/gift/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
+      console.log("Response data:", data); // ADD THIS
+
+      if (data.error) {
+        alert(`Error: ${data.error}`);
+        return;
+      }
+      
+      if (!data.slug) {
+        alert("No slug returned!");
+        console.error("Full response:", data);
+        return;
+      }
+
       setLink(`${window.location.origin}/g/${data.slug}`);
     } catch (error) {
       console.error("Error creating gift:", error);
