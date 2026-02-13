@@ -18,7 +18,6 @@
 // auto generated, edit if need to but example for setup
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -28,28 +27,41 @@ generator client {
 model Gift {
   id            String   @id @default(uuid())
   slug          String   @unique
+
   senderName    String
   recipientName String
   questionText  String
-  theme         String
+  // theme         String
+
+  giftType      GiftType
+  giftConfig    Json
+
+  theme           String  @default("classic") // classic, romantic, playful, elegant
+  backgroundColor String  @default("#FFF5F7") // hex color
+  accentColor     String  @default("#FF69B4") // hex color for buttons, hearts
+  backgroundImage String? // URL or preset name
+  giftWrapping    String  @default("heart")
 
   status        GiftStatus @default(CREATED)
 
   openedAt      DateTime?
   respondedAt   DateTime?
-
-  coffeeDrink   String?
-  coffeeSize    String?
-  coffeeMilk    String?
-
   createdAt     DateTime @default(now())
+}
+
+enum GiftType {
+  COFFEE
+  GIFTCARD
+  CHOCOLATES
 }
 
 enum GiftStatus {
   CREATED
   OPENED
   ACCEPTED
+  FULFILLED
 }
+
 
 // to genrate:
 
@@ -60,3 +72,30 @@ enum GiftStatus {
 // Optional for ui:
 
 // npx prisma studio
+
+
+// Coffee config
+// {
+//   "provider": "starbucks",
+//   "drink": "Latte",
+//   "size": "Grande",
+//   "milk": "Oat",
+//   "extras": ["Vanilla"]
+// }
+
+// Gift card config
+// {
+//   "provider": "tango",
+//   "amount": 10,
+//   "currency": "USD",
+//   "brand": "Starbucks"
+// }
+
+
+// Chocolates
+// {
+//   "provider": "amazon",
+//   "asin": "B08XYZ123",
+//   "title": "Ferrero Rocher 24pc",
+//   "affiliateTag": "yourtag-20"
+// }
