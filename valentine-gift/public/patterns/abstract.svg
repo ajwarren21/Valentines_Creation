@@ -1,0 +1,9 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="abstract" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M0,100 Q50,50 100,100 T200,100" stroke="#FFB6C1" stroke-width="2" fill="none" opacity="0.3"/>
+      <path d="M0,150 Q50,100 100,150 T200,150" stroke="#FF69B4" stroke-width="2" fill="none" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#abstract)"/>
+</svg>

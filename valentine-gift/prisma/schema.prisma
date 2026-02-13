@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// Auto generated examples from prisma install
+// generator client {
+//   provider = "prisma-client"
+//   output   = "../src/generated/prisma"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+// }
+
+
+// auto generated, edit if need to but example for setup
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Gift {
+  id            String   @id @default(uuid())
+  slug          String   @unique
+
+  senderName    String
+  recipientName String
+  questionText  String
+  // theme         String
+
+  giftType      GiftType
+  giftConfig    Json
+
+  theme           String  @default("classic") // classic, romantic, playful, elegant
+  backgroundColor String  @default("#FFF5F7") // hex color
+  accentColor     String  @default("#FF69B4") // hex color for buttons, hearts
+  backgroundImage String? // URL or preset name
+  giftWrapping    String  @default("heart")
+
+  status        GiftStatus @default(CREATED)
+
+  openedAt      DateTime?
+  respondedAt   DateTime?
+  createdAt     DateTime @default(now())
+}
+
+enum GiftType {
+  COFFEE
+  GIFTCARD
+  CHOCOLATES
+}
+
+enum GiftStatus {
+  CREATED
+  OPENED
+  ACCEPTED
+  FULFILLED
+}
+
+
+// to genrate:
+
+// npx prisma migrate dev --name init
+// npx prisma generate
+
+
+// Optional for ui:
+
+// npx prisma studio
+
+
+// Coffee config
+// {
+//   "provider": "starbucks",
+//   "drink": "Latte",
+//   "size": "Grande",
+//   "milk": "Oat",
+//   "extras": ["Vanilla"]
+// }
+
+// Gift card config
+// {
+//   "provider": "tango",
+//   "amount": 10,
+//   "currency": "USD",
+//   "brand": "Starbucks"
+// }
+
+
+// Chocolates
+// {
+//   "provider": "amazon",
+//   "asin": "B08XYZ123",
+//   "title": "Ferrero Rocher 24pc",
+//   "affiliateTag": "yourtag-20"
+// }
