@@ -1,0 +1,85 @@
+[00:00:00.997] Server  LOG     ✓ Ready in 660ms
+[00:00:04.200] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:15.523] Server  LOG     Received body: {}
+[00:00:15.598] Browser LOG     Sending payload: {"accentColor":"#FF69B4","backgroundColor":"#FFF5F7","backgroundImage":"none","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"heart","questionText":"a","recipientName":"Their Namea","senderName":"Your Namea","theme":"classic"}
+[00:00:15.635] Server  LOG     Created gift: {}
+[00:00:15.636] Server  LOG     Slug: "bc810daa"
+[00:00:15.742] Browser LOG     Response data: {"slug":"bc810daa"}
+[00:00:21.213] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:21.329] Browser LOG     Fetching gift with slug: bc810daa
+[00:00:22.040] Browser LOG     Response status: 200
+[00:00:22.040] Browser LOG     Received gift data: {"accentColor":"#FF69B4","backgroundColor":"#FFF5F7","backgroundImage":"none","createdAt":"2026-02-13T22:21:22.854Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"heart","id":"c8da351d-4495-436f-bd43-8551a2d88e7f","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"bc810daa","status":"CREATED","theme":"classic"}
+[00:02:21.538] Server  ERROR   Error fulfilling gift: TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+[00:02:21.642] Browser LOG     Fulfillment response: {"error":"Failed to fulfill gift"}
+[00:02:46.137] Server  LOG     Received body: {}
+[00:02:46.170] Server  LOG     Created gift: {}
+[00:02:46.170] Server  LOG     Slug: "7c553991"
+[00:02:46.276] Browser LOG     Sending payload: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"none","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","questionText":"a","recipientName":"Their Namea","senderName":"Your Namea","theme":"elegant"}
+[00:02:46.276] Browser LOG     Response data: {"slug":"7c553991"}
+[00:02:47.419] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:47.563] Browser LOG     Fetching gift with slug: 7c553991
+[00:02:47.563] Browser LOG     Response status: 200
+[00:02:47.563] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"none","createdAt":"2026-02-13T22:23:53.398Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","id":"2baa37af-8ebe-464b-adea-75c2030ca8cf","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"7c553991","status":"CREATED","theme":"elegant"}
+[00:02:50.735] Server  ERROR   Error fulfilling gift: TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+[00:02:50.848] Browser LOG     Fulfillment response: {"error":"Failed to fulfill gift"}
+[00:03:01.000] Server  LOG     Received body: {}
+[00:03:01.033] Server  LOG     Created gift: {}
+[00:03:01.033] Server  LOG     Slug: "5565213a"
+[00:03:01.137] Browser LOG     Sending payload: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","questionText":"a","recipientName":"Their Namea","senderName":"Your Namea","theme":"elegant"}
+[00:03:01.137] Browser LOG     Response data: {"slug":"5565213a"}
+[00:03:02.368] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:02.510] Browser LOG     Fetching gift with slug: 5565213a
+[00:03:02.510] Browser LOG     Response status: 200
+[00:03:02.510] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","createdAt":"2026-02-13T22:24:08.261Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","id":"a0c274ae-2f60-4f80-9056-83106c9d5ed3","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"5565213a","status":"CREATED","theme":"elegant"}
+[00:03:05.828] Server  ERROR   Error fulfilling gift: TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+[00:03:05.931] Browser LOG     Fulfillment response: {"error":"Failed to fulfill gift"}
+[00:07:45.535] Server  LOG     ✓ Compiled in 307ms
+[00:07:46.086] Browser LOG     Fetching gift with slug: 5565213a
+[00:07:46.086] Browser LOG     Response status: 200
+[00:07:46.086] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","createdAt":"2026-02-13T22:24:08.261Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","id":"a0c274ae-2f60-4f80-9056-83106c9d5ed3","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"5565213a","status":"CREATED","theme":"elegant"}
+[00:07:46.086] Browser LOG     Fetching gift with slug: 7c553991
+[00:07:46.086] Browser LOG     Response status: 200
+[00:07:46.086] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"none","createdAt":"2026-02-13T22:23:53.398Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","id":"2baa37af-8ebe-464b-adea-75c2030ca8cf","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"7c553991","status":"CREATED","theme":"elegant"}
+[00:07:46.086] Browser LOG     Fetching gift with slug: bc810daa
+[00:07:46.086] Browser LOG     Response status: 200
+[00:07:46.086] Browser LOG     Received gift data: {"accentColor":"#FF69B4","backgroundColor":"#FFF5F7","backgroundImage":"none","createdAt":"2026-02-13T22:21:22.854Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"heart","id":"c8da351d-4495-436f-bd43-8551a2d88e7f","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"bc810daa","status":"CREATED","theme":"classic"}
+[00:07:46.483] Server  LOG     ✓ Compiled in 116ms
+[00:07:49.871] Server  LOG     Received body: {}
+[00:07:49.874] Server  LOG     Created gift: {}
+[00:07:49.875] Server  LOG     Slug: "373eb9e5"
+[00:07:49.977] Browser LOG     Sending payload: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","questionText":"a","recipientName":"Their Namea","senderName":"Your Namea","theme":"elegant"}
+[00:07:49.977] Browser LOG     Response data: {"slug":"373eb9e5"}
+[00:07:51.763] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:51.906] Browser LOG     Fetching gift with slug: 373eb9e5
+[00:07:51.906] Browser LOG     Response status: 200
+[00:07:51.906] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","createdAt":"2026-02-13T22:28:57.133Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"bear","id":"72275f6d-b33d-4dd8-b9a1-adfc666fd82d","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"373eb9e5","status":"CREATED","theme":"elegant"}
+[00:08:10.935] Server  LOG     Received body: {}
+[00:08:10.969] Server  LOG     Created gift: {}
+[00:08:10.970] Server  LOG     Slug: "07a21386"
+[00:08:11.073] Browser LOG     Sending payload: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"box","questionText":"a","recipientName":"Their Namea","senderName":"Your Namea","theme":"elegant"}
+[00:08:11.073] Browser LOG     Response data: {"slug":"07a21386"}
+[00:08:12.182] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:12.329] Browser LOG     Fetching gift with slug: 07a21386
+[00:08:12.329] Browser LOG     Response status: 200
+[00:08:12.329] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","createdAt":"2026-02-13T22:29:18.197Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"box","id":"e44bb6d6-89ba-4592-8c1d-948b24ab3ac1","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"07a21386","status":"CREATED","theme":"elegant"}
+[00:09:26.496] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:26.664] Browser LOG     Fetching gift with slug: 07a21386
+[00:09:26.664] Browser LOG     Response status: 200
+[00:09:26.664] Browser LOG     Received gift data: {"accentColor":"#D4AF37","backgroundColor":"#F5F5F0","backgroundImage":"hearts","createdAt":"2026-02-13T22:29:18.197Z","giftConfig":{"code":"a"},"giftType":"GIFTCARD","giftWrapping":"box","id":"e44bb6d6-89ba-4592-8c1d-948b24ab3ac1","openedAt":null,"questionText":"a","recipientName":"Their Namea","respondedAt":null,"senderName":"Your Namea","slug":"07a21386","status":"CREATED","theme":"elegant"}
+[00:10:40.333] Server  LOG     ✓ Compiled in 242ms
+[00:10:48.591] Server  LOG     ✓ Compiled in 198ms
+[00:10:57.164] Server  LOG     ✓ Compiled in 175ms
+[00:12:19.544] Server  LOG     Received body: {}
+[00:12:19.577] Server  LOG     Created gift: {}
+[00:12:19.577] Server  LOG     Slug: "91a66c63"
+[00:12:19.683] Browser LOG     Sending payload: {"accentColor":"#E91E63","backgroundColor":"#FFFFFF","backgroundImage":"roses","giftConfig":{"code":"abc"},"giftType":"GIFTCARD","giftWrapping":"bear","questionText":"hello","recipientName":"noone","senderName":"andrew","theme":"modern"}
+[00:12:19.683] Browser LOG     Response data: {"slug":"91a66c63"}
+[00:12:21.340] Server  LOG     Received body: {}
+[00:12:21.342] Server  LOG     Created gift: {}
+[00:12:21.342] Server  LOG     Slug: "d8db47cb"
+[00:12:21.446] Browser LOG     Sending payload: {"accentColor":"#E91E63","backgroundColor":"#FFFFFF","backgroundImage":"roses","giftConfig":{"code":"abc"},"giftType":"GIFTCARD","giftWrapping":"bear","questionText":"hello","recipientName":"noone","senderName":"andrew","theme":"modern"}
+[00:12:21.446] Browser LOG     Response data: {"slug":"d8db47cb"}
+[00:12:22.497] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:22.641] Browser LOG     Fetching gift with slug: d8db47cb
+[00:12:22.641] Browser LOG     Response status: 200
+[00:12:22.641] Browser LOG     Received gift data: {"accentColor":"#E91E63","backgroundColor":"#FFFFFF","backgroundImage":"roses","createdAt":"2026-02-13T22:33:28.601Z","giftConfig":{"code":"abc"},"giftType":"GIFTCARD","giftWrapping":"bear","id":"59d565db-6c6c-4c13-bdc7-e871dc0b1e99","openedAt":null,"questionText":"hello","recipientName":"noone","respondedAt":null,"senderName":"andrew","slug":"d8db47cb","status":"CREATED","theme":"modern"}

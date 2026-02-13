@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Andrew/Desktop/VDProject/Valentines_Creation/valentine-gift/src/app/page.js"],"sourcesContent":["// src/app/page.js\r\nexport default function HomePage() {\r\n  return (\r\n    <main className=\"flex flex-col items-center justify-center min-h-screen bg-pink-50\">\r\n      <h1 className=\"text-5xl font-bold mb-4\">Valentine's Gift Creator</h1>\r\n      <p className=\"text-lg text-gray-700 mb-6\">\r\n        Send a personalized coffee, gift card, or chocolate gift.\r\n      </p>\r\n      <a\r\n        href=\"/create\"\r\n        className=\"px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition\"\r\n      >\r\n        Create a Gift\r\n      </a>\r\n    </main>\r\n  );\r\n}\r\n"],"names":[],"mappings":"AAAA,kBAAkB;;;;;;;AACH,SAAS;IACtB,qBACE,8OAAC;QAAK,WAAU;;0BACd,8OAAC;gBAAG,WAAU;0BAA0B;;;;;;0BACxC,8OAAC;gBAAE,WAAU;0BAA6B;;;;;;0BAG1C,8OAAC;gBACC,MAAK;gBACL,WAAU;0BACX;;;;;;;;;;;;AAKP"}}]
+}

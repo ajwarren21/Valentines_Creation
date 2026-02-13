@@ -1,0 +1,6 @@
+{
+  "/api/gift/[slug]/route": "app/api/gift/[slug]/route.js",
+  "/api/gift/create/route": "app/api/gift/create/route.js",
+  "/create/page": "app/create/page.js",
+  "/g/[slug]/page": "app/g/[slug]/page.js"
+}
