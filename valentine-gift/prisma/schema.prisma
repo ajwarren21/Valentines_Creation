@@ -40,6 +40,7 @@ model Gift {
   backgroundColor String  @default("#FFF5F7") // hex color
   accentColor     String  @default("#FF69B4") // hex color for buttons, hearts
   backgroundImage String? // URL or preset name
+  giftWrapping    String  @default("heart")
 
   status        GiftStatus @default(CREATED)
 

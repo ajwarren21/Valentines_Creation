@@ -52,6 +52,7 @@ export async function POST(req) {
         backgroundColor: body.backgroundColor || "#FFF5F7",
         accentColor: body.accentColor || "#FF69B4",
         backgroundImage: body.backgroundImage || null,
+        giftWrapping: body.giftWrapping || "heart",
         
         // Gift details
         giftType: body.giftType,
