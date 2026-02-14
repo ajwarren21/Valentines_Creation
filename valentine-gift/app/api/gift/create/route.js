@@ -23,7 +23,7 @@
 
 // app/api/gift/create/route.js
 import { NextResponse } from "next/server";
-import { prisma } from "@/../lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { randomUUID } from "crypto";
 
 export async function POST(req) {

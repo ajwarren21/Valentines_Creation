@@ -1,6 +1,6 @@
 // app/api/gift/[slug]/route.js
 import { NextResponse } from "next/server";
-import { prisma } from "@/../lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 // GET - Retrieve gift details
 export async function GET(req, context) {
