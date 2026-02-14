@@ -2,6 +2,8 @@
 // npm install --save-dev prisma dotenv
 import "dotenv/config";
 import { defineConfig } from "prisma/config";
+// import { defineConfig } from "@prisma/client";
+
 
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not defined");
@@ -9,8 +11,8 @@ if (!process.env.DATABASE_URL) {
 
 export default defineConfig({
   datasource: {
+    // adapter: "node-postgres",
     url: process.env.DATABASE_URL,
-   shadowDatabaseUrl: "postgresql://valentines_user:ryangates@localhost:5432/valentines_shadow",
   },
 });
 
